@@ -3,13 +3,25 @@ session_start();
 include('includes/header.php'); 
 ?>
 
+<style>
+  .Row {
+    display: flex;
+    justify-content: center;
+    margin-top: 25%;
+  }
 
+
+
+
+</style>
 
 
 <div class="container">
 
 <!-- Outer Row -->
-<div class="row justify-content-center">
+<div class="Row">
+  <div class="row justify-content-center" >
+</div>
 
   <div class="col-xl-6 col-lg-6 col-md-6">
 
@@ -20,6 +32,9 @@ include('includes/header.php');
           <div class="col-lg-12">
             <div class="p-5">
               <div class="text-center">
+              <h3 class="text-center">
+                  <img src="../admin/img/logo2.png" width="90" alt="" class="mb-2">             
+              </h3>
                 <h1 class="h4 text-gray-900 mb-4">Login Here!</h1>
                 <?php
 
