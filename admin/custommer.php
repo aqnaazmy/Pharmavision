@@ -1,3 +1,8 @@
+<head>
+  <title>Pharmavision</title>
+  <link rel="icon" type="image/x-icon" href="/Pharmavision/img/logo4.png">
+</head>
+
 <?php
 include('includes/header.php'); 
 include('includes/navbar.php'); 
