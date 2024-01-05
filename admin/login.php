@@ -1,3 +1,8 @@
+<head>
+  <title>Pharmavision</title>
+  <link rel="icon" type="image/x-icon" href="/admin/img/Logo1.png">
+</head>
+
 <?php
 session_start();
 include('includes/header.php'); 

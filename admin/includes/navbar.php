@@ -4,8 +4,9 @@
 <!-- Sidebar - Brand -->
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
   <div class="sidebar-brand-icon rotate-n-15">
-    <!-- <i class="fas fa-laugh-wink"></i> -->
+    <i class="fas fa-laugh-wink"></i>
   </div>
+  <!-- <img class="img-profile rounded-circle" src="../img/logo1"> -->
   <div class="sidebar-brand-text mx-3">Pharmavision</div>
 </a>
 
@@ -36,7 +37,7 @@
   
   <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item">
-    <a class="nav-link collapsed" href="#">
+    <a class="nav-link collapsed" href="custommer.php">
       <i class="fas fa-solid fa-users"></i>
       <span>Custommer</span>
     </a>
@@ -52,7 +53,7 @@
 
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item">
-  <a class="nav-link collapsed" href="#">
+  <a class="nav-link collapsed" href="obat.php">
     <i class="fas fa-solid fa-tablets"></i>
     <span>Potion</span>
   </a>
