@@ -61,7 +61,7 @@
 </li>
 
 <li class="nav-item">
-  <a class="nav-link collapsed" href="#">
+  <a class="nav-link collapsed" href="transaksi.php">
     <i class="fas fa-solid fa-landmark"></i>
     <!-- <i class="fa-solid fa-landmark"></i> -->
     <span>Transaction</span>
