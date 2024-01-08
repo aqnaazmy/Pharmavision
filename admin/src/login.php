@@ -1,6 +1,6 @@
 <head>
   <title>Pharmavision</title>
-  <link rel="icon" type="image/x-icon" href="/admin/img/Logo1.png">
+  <link rel="icon" type="image/x-icon" href="/Pharmavision/img/logo4.png">
 </head>
 
 <?php
@@ -12,11 +12,24 @@ include('includes/header.php');
   .Row {
     display: flex;
     justify-content: center;
-    margin-top: 25%;
+    margin-top: 13%;
   }
 
+  .fontLogin {
+    margin-bottom: 50px;
+  }
 
+  .formGroup {
+    margin-bottom: 30px;
+  }
 
+  .formGroup2 {
+    margin-bottom: 60px;
+  }
+
+  .user {
+    margin-bottom: 10px;
+  }
 
 </style>
 
@@ -37,10 +50,11 @@ include('includes/header.php');
           <div class="col-lg-12">
             <div class="p-5">
               <div class="text-center">
-              <h3 class="text-center">
-                  <img src="../admin/img/logo2.png" width="90" alt="" class="mb-2">             
-              </h3>
-                <h1 class="h4 text-gray-900 mb-4">Login Here!</h1>
+              <div class="text-center">
+                  <img src="/Pharmavision/img/logo4.png" width="120" alt="" class="mb-2">             
+              </div>
+              <h5 class="fontLogin">login untuk mengakses halaman dashboard</h5>
+
                 <?php
 
                     if(isset($_SESSION['status']) && $_SESSION['status'] !='') 
@@ -53,10 +67,10 @@ include('includes/header.php');
 
                 <form class="user" action="logincode.php" method="POST">
 
-                    <div class="form-group">
+                    <div class="formGroup">
                     <input type="email" name="emaill" class="form-control form-control-user" placeholder="Enter Email Address...">
                     </div>
-                    <div class="form-group">
+                    <div class="formGroup2">
                     <input type="password" name="passwordd" class="form-control form-control-user" placeholder="Password">
                     </div>
             

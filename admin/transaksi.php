@@ -13,7 +13,7 @@ include('includes/navbar.php');
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add potion Data</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add Transaction Data</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -23,11 +23,11 @@ include('includes/navbar.php');
         <div class="modal-body">
 
             <div class="form-group">
-                <label> id Obat </label>
+                <label> Username </label>
                 <input type="text" name="username" class="form-control" placeholder="Enter Username">
             </div>
             <div class="form-group">
-                <label>Nama Obat</label>
+                <label>Email</label>
                 <input type="email" name="email" class="form-control" placeholder="Enter Email">
             </div>
             <div class="form-group">
@@ -56,9 +56,9 @@ include('includes/navbar.php');
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Potion 
+    <h6 class="m-0 font-weight-bold text-primary">Transaction 
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
-              Add Potion Profile 
+              Add Transaction Profile 
             </button>
     </h6>
   </div>
@@ -70,23 +70,23 @@ include('includes/navbar.php');
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
+            <th> Id Transaksi </th>
             <th> Id Obat </th>
+            <th> Id Custommer </th>
             <th> Nama Obat </th>
-            <!-- <th>Email </th>
-            <th>Password</th> -->
-            <th>EDIT </th>
-            <th>DELETE </th>
+            <th> EDIT </th>
+            <th> DELETE </th>
           </tr>
         </thead>
         <tbody>
      
           <tr>
-            <td> 1 </td>
-            <td> Funda of WEb IT</td>
-            <!-- <td> funda@example.com</td>
-            <td> *** </td> -->
+            <td> 75529 </td>
+            <td> 00987 </td>
+            <td> 12345 </td>
+            <td> Vitamin C </td>
             <td>
-             <form action="" method="post">
+                <form action="" method="post">
                     <input type="hidden" name="edit_id" value="">
                     <button  type="submit" name="edit_btn" class="btn btn-success"> EDIT</button>
                 </form>
@@ -95,7 +95,7 @@ include('includes/navbar.php');
                 <form action="" method="post">
                   <input type="hidden" name="delete_id" value="">
                   <button type="submit" name="delete_btn" class="btn btn-danger"> DELETE</button>
-                </form>   
+                </form>
             </td>
           </tr>
         
