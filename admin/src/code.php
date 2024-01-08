@@ -9,16 +9,21 @@ if (isset($_POST['tambah_btn'])) {
     $noHandphone = $_POST['No_Handphone'];
     $gender = $_POST['Gender'];
 
+    // Cetak variabel untuk debugging
+    echo "Nama: $nama, Alamat: $alamat, No Handphone: $noHandphone, Gender: $gender";
+    var_dump($nama, $alamat, $noHandphone, $gender); // Tambahkan ini
     
 
     // Query untuk menambah data ke database
-    $query = "INSERT INTO custommer (nama, alamat, no_handphone, gender) VALUES ('$nama', '$alamat', '$noHandphone', '$gender')";
-    
+    $query = "INSERT INTO custommer (`nama`, `alamat`, `no_handphone`, `gender`) VALUES ('$nama', '$alamat', '$noHandphone', '$gender')";
+    echo $query; // Tambahkan ini
+
     // Eksekusi query
     if ($koneksi->query($query) === TRUE) {
         echo "Data berhasil ditambahkan";
     } else {
         echo "Error: " . $query . "<br>" . $koneksi->error;
+        var_dump($koneksi->error); // Tambahkan ini
     }
     header('Location: custommer.php'); // Ganti dengan halaman yang sesuai
 }
