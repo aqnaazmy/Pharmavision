@@ -4,8 +4,22 @@
 </head>
 
 <?php
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+
+
 include('includes/header.php'); 
 include('includes/navbar.php'); 
+include('koneksi.php');
+
+$query = "SELECT * FROM custommer";
+$result = $koneksi->query($query);
+
+// if ($testResult) {
+//     echo "Koneksi dan query berhasil!";
+// } else {
+//     echo "Gagal menjalankan query: " . $koneksi->error;
+// }
 ?>
 
 
@@ -28,15 +42,15 @@ include('includes/navbar.php');
             </div>
             <div class="form-group">
                 <label> Alamat</label>
-                <input type="text" name="text" class="form-control" placeholder="Masukan Alamat">
+                <input type="text" name="Alamat" class="form-control" placeholder="Masukan Alamat">
             </div>
             <div class="form-group">
                 <label> No handphone</label>
-                <input type="text" name="text" class="form-control" placeholder="Masukan No handphone">
+                <input type="text" name="No_Handphone" class="form-control" placeholder="Masukan No handphone">
             </div>
             <div class="form-group">
                 <label>Gender</label>
-                <select class="form-control input" name="gender" required>
+                <select class="form-control input" name="Gender" required>
                     <option value="laki-laki">Laki - Laki</option>
                     <option value="perempuan">Perempuan</option>
                 </select>
@@ -45,7 +59,7 @@ include('includes/navbar.php');
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="registerbtn" class="btn btn-primary">Save</button>
+            <button type="submit" name="tambah_btn" class="btn btn-primary">Save</button>
         </div>
       </form>
 
@@ -54,61 +68,57 @@ include('includes/navbar.php');
 </div>
 
 
+
 <div class="container-fluid">
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
-  <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary"> Custommer 
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Customer 
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
-             Add customer data
+                Add customer data
             </button>
-    </h6>
-  </div>
-
-  <div class="card-body">
-
-    <div class="table-responsive">
-
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-        <thead>
-          <tr>
-            <th> ID </th>
-            <th> Nama </th>
-            <th> Alamat </th>
-            <th> No handphone</th>
-            <th> Gender</th>
-            <th> EDIT </th>
-            <th> DELETE </th>
-          </tr>
-        </thead>
-        <tbody>
-     
-          <tr>
-            <td> 1 </td>
-            <td> custommer 1</td>
-            <td> jl.hehe no 23 tegal</td>
-            <td> 081800544669</td>
-            <td> laki-laki </td>            
-            <td>
-                <form action="" method="post">
-                    <input type="hidden" name="edit_id" value="">
-                    <button  type="submit" name="edit_btn" class="btn btn-success"> EDIT</button>
-                </form>
-            </td>
-            <td>
-                <form action="" method="post">
-                  <input type="hidden" name="delete_id" value="">
-                  <button type="submit" name="delete_btn" class="btn btn-danger"> DELETE</button>
-                </form>
-            </td>
-          </tr>
-        
-        </tbody>
-      </table>
-
+        </h6>
     </div>
-  </div>
+
+    <div class="card-body">
+
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nama</th>
+                        <th>Alamat</th>
+                        <th>No Handphone</th>
+                        <th>Gender</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php while ($row = $result->fetch_assoc()): ?>
+                        <tr>
+                            <td><?= $row['id']; ?></td>
+                            <td><?= $row['nama']; ?></td>
+                            <td><?= $row['alamat']; ?></td>
+                            <td><?= $row['no_handphone']; ?></td>
+                            <td><?= $row['gender']; ?></td>
+                            <td>
+                                <form action="code.php" method="post">
+                                    <input type="hidden" name="edit_id" value="<?= $row['id']; ?>">
+                                    <button type="submit" name="edit_btn" class="btn btn-success">EDIT</button>
+                                </form>
+                                <form action="code.php" method="post">
+                                    <input type="hidden" name="delete_id" value="<?= $row['id']; ?>">
+                                    <button type="submit" name="delete_btn" class="btn btn-danger">DELETE</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 </div>

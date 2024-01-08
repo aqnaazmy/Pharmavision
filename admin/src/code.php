@@ -1,0 +1,49 @@
+<?php
+include('koneksi.php');
+
+// Create (Tambah Data Custommer)
+if (isset($_POST['tambah_btn'])) {
+    // echo "Form submit detected";
+    $nama = $_POST['Nama'];
+    $alamat = $_POST['Alamat'];
+    $noHandphone = $_POST['No_Handphone'];
+    $gender = $_POST['Gender'];
+
+    
+
+    // Query untuk menambah data ke database
+    $query = "INSERT INTO custommer (nama, alamat, no_handphone, gender) VALUES ('$nama', '$alamat', '$noHandphone', '$gender')";
+    
+    // Eksekusi query
+    if ($koneksi->query($query) === TRUE) {
+        echo "Data berhasil ditambahkan";
+    } else {
+        echo "Error: " . $query . "<br>" . $koneksi->error;
+    }
+    header('Location: custommer.php'); // Ganti dengan halaman yang sesuai
+}
+
+// Read (Tampilkan Data Custommer)
+// (Data pelanggan akan ditampilkan di your_customer_page.php)
+
+// Update (Edit Data Custommer)
+if (isset($_POST['update_btn'])) {
+    $id = $_POST['edit_id'];
+    $nama = $_POST['edit_nama'];
+    $alamat = $_POST['edit_alamat'];
+    $noHandphone = $_POST['edit_no_handphone'];
+    $gender = $_POST['edit_gender'];
+
+    $query = "UPDATE custommer SET nama='$nama', alamat='$alamat', `no handphone`='$noHandphone', gender='$gender' WHERE id='$id'";
+    $koneksi->query($query);
+    header('Location: custommer.php'); // Ganti dengan halaman yang sesuai
+}
+
+// Delete (Hapus Data Custommer)
+if (isset($_POST['delete_btn'])) {
+    $id = $_POST['delete_id'];
+    $query = "DELETE FROM custommer WHERE id='$id'";
+    $koneksi->query($query);
+    header('Location: custommer.php'); // Ganti dengan halaman yang sesuai
+}
+?>
