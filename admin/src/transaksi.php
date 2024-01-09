@@ -6,6 +6,10 @@
 <?php
 include('includes/header.php'); 
 include('includes/navbar.php'); 
+include('koneksi.php');
+
+$query = "SELECT * FROM transaksi";
+$result = $koneksi->query($query);
 ?>
 
 
