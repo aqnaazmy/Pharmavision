@@ -10,7 +10,6 @@ include('koneksi.php');
 
 $query = "SELECT * FROM obat";
 $result = $koneksi->query($query);
-
 ?>
 
 
@@ -23,22 +22,22 @@ $result = $koneksi->query($query);
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="code_obat.php" method="POST">
+      <form action="code.php" method="POST">
 
         <div class="modal-body">
 
             <div class="form-group">
                 <label> id Obat </label>
-                <input type="text" name="id" class="form-control" placeholder="Masukan id">
+                <input type="number" name="Id Obat" class="form-control" placeholder="Masukan Id">
             </div>
             <div class="form-group">
                 <label>Nama Obat</label>
-                <input type="text" name="Nama" class="form-control" placeholder="masukan nama obat">
-            </div>        
+                <input type="text" name="Nama Obat" class="form-control" placeholder="Masukan Nama">
+            </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="obt_btn" class="btn btn-primary">Save</button>
+            <button type="submit" name="tambah_obat" class="btn btn-primary">Save</button>
         </div>
       </form>
 
@@ -68,29 +67,32 @@ $result = $koneksi->query($query);
           <tr>
             <th> Id Obat </th>
             <th> Nama Obat </th>
-            <th> Action </th>
+            <th> EDIT </th>
+            <th> DELETE </th>
           </tr>
-              </thead>
-              <tbody>
-                    <?php while ($row = $result->fetch_assoc()): ?>
-                        <tr>
-                            <td><?= $row['id']; ?></td>
-                            <td><?= $row['nama']; ?></td>
-                            <td>
-                                <form action="code_obat.php" method="post">
-                                    <input type="hidden" name="edit_id" value="<?= $row['id']; ?>">
-                                    <button type="button"  class="btn btn-success edit-btn" data-toggle="modal" data-target="#addadminprofile" data-id="<?= $row['id']; ?>" data-nama="<?= $row['nama'];?>">EDIT
-                                    </button>
-                                </form>
-                                <form action="code_obat.php" method="post">
-                                    <input type="hidden" name="dltobt_id" value="<?= $row['id']; ?>">
-                                    <button type="submit" name="dltobt_btn" class="btn btn-danger">DELETE</button>
-                                </form>
-                            </td>
-                        </tr>
-                    <?php endwhile; ?>
-              </tbody>
-              </table>
+        </thead>
+        <tbody>
+            <?php while ($row = $result->fetch_assoc()): ?>
+                <tr>
+                    <td><?= $row['id']; ?></td>
+                    <td><?= $row['nama_obat']; ?></td>
+                    <td>
+                      <form action="code.php" method="post">
+                          <input type="hidden" name="edit_id" value="">
+                          <button  type="submit" name="edit_btn" class="btn btn-success"> EDIT</button>
+                      </form>
+                    </td>
+                    <td>
+                      <form action="code.php" method="post">
+                        <input type="hidden" name="delete_id" value="<?= $row['id']; ?>">
+                        <button type="submit" name="delete_obat" class="btn btn-danger"> DELETE</button>
+                      </form>
+            </td>
+                </tr>
+            <?php endwhile; ?>
+        </tbody>
+      </table>
+
     </div>
   </div>
 </div>

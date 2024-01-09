@@ -64,14 +64,47 @@ if (isset($_POST['update_btn'])) {
 }
 
 
-
-
 // Delete (Hapus Data Custommer)
 if (isset($_POST['delete_btn'])) {
     $id = $_POST['delete_id'];
     $query = "DELETE FROM custommer WHERE id='$id'";
     $koneksi->query($query);
     header('Location: custommer.php'); // Ganti dengan halaman yang sesuai
+}
+
+
+
+// Create (Tambah Data obat)
+if (isset($_POST['tambah_obat'])) {
+    // echo "Form submit detected";
+    $id = $_POST['id obbat'];
+    $nama = $_POST['Nama'];
+
+    // Cetak variabel untuk debugging
+    echo "id obat: $id, Nama: $nama";
+    var_dump($id ,$nama); // Tambahkan ini
+    
+
+    // Query untuk menambah data ke database
+    $query = "INSERT INTO obat ('id', `nama_obat`) VALUES ('$id','$nama')";
+    echo $query; // Tambahkan ini
+
+    // Eksekusi query
+    if ($koneksi->query($query) === TRUE) {
+        echo "Data berhasil ditambahkan";
+    } else {
+        echo "Error: " . $query . "<br>" . $koneksi->error;
+        var_dump($koneksi->error); // Tambahkan ini
+    }
+    header('Location: obat.php'); // Ganti dengan halaman yang sesuai
+}
+
+// Delete (Hapus Data obat)
+if (isset($_POST['delete_obat'])) {
+    $id = $_POST['delete_id'];
+    $query = "DELETE FROM obat WHERE id='$id'";
+    $koneksi->query($query);
+    header('Location: obat.php'); // Ganti dengan halaman yang sesuai
 }
 
 
