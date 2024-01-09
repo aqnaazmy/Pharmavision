@@ -1,6 +1,7 @@
 <?php
 include('koneksi.php');
 
+
 // Create (Tambah Data Custommer)
 if (isset($_POST['tambah_btn'])) {
     // echo "Form submit detected";
@@ -39,10 +40,31 @@ if (isset($_POST['update_btn'])) {
     $noHandphone = $_POST['edit_no_handphone'];
     $gender = $_POST['edit_gender'];
 
-    $query = "UPDATE custommer SET nama='$nama', alamat='$alamat', `no handphone`='$noHandphone', gender='$gender' WHERE id='$id'";
-    $koneksi->query($query);
-    header('Location: custommer.php'); // Ganti dengan halaman yang sesuai
+    // Gunakan prepared statement
+    $query = "UPDATE custommer SET nama=?, alamat=?, no_handphone=?, gender=? WHERE id=?";
+    
+    // Persiapkan statement
+    $stmt = $koneksi->prepare($query);
+
+    // Bind parameter
+    $stmt->bind_param("ssssi", $nama, $alamat, $noHandphone, $gender, $id);
+
+    // Eksekusi statement
+    if ($stmt->execute()) {
+        echo "Data berhasil diupdate";
+    } else {
+        echo "Error: " . $query . "<br>" . $koneksi->error;
+    }
+
+    // Tutup statement
+    $stmt->close();
+
+    // Redirect to custommer.php
+    header('Location: custommer.php');
 }
+
+
+
 
 // Delete (Hapus Data Custommer)
 if (isset($_POST['delete_btn'])) {
@@ -51,4 +73,7 @@ if (isset($_POST['delete_btn'])) {
     $koneksi->query($query);
     header('Location: custommer.php'); // Ganti dengan halaman yang sesuai
 }
+
+
+
 ?>

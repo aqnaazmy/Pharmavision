@@ -6,6 +6,11 @@
 <?php
 include('includes/header.php'); 
 include('includes/navbar.php'); 
+include('koneksi.php');
+
+$query = "SELECT * FROM obat";
+$result = $koneksi->query($query);
+
 ?>
 
 
@@ -18,31 +23,22 @@ include('includes/navbar.php');
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="code.php" method="POST">
+      <form action="code_obat.php" method="POST">
 
         <div class="modal-body">
 
             <div class="form-group">
                 <label> id Obat </label>
-                <input type="text" name="username" class="form-control" placeholder="Enter Username">
+                <input type="text" name="id" class="form-control" placeholder="Masukan id">
             </div>
             <div class="form-group">
                 <label>Nama Obat</label>
-                <input type="email" name="email" class="form-control" placeholder="Enter Email">
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Enter Password">
-            </div>
-            <div class="form-group">
-                <label>Confirm Password</label>
-                <input type="password" name="confirmpassword" class="form-control" placeholder="Confirm Password">
-            </div>
-        
+                <input type="text" name="Nama" class="form-control" placeholder="masukan nama obat">
+            </div>        
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="registerbtn" class="btn btn-primary">Save</button>
+            <button type="submit" name="obt_btn" class="btn btn-primary">Save</button>
         </div>
       </form>
 
@@ -72,36 +68,29 @@ include('includes/navbar.php');
           <tr>
             <th> Id Obat </th>
             <th> Nama Obat </th>
-            <!-- <th>Email </th>
-            <th>Password</th> -->
-            <th>EDIT </th>
-            <th>DELETE </th>
+            <th> Action </th>
           </tr>
-        </thead>
-        <tbody>
-     
-          <tr>
-            <td> 1 </td>
-            <td> Funda of WEb IT</td>
-            <!-- <td> funda@example.com</td>
-            <td> *** </td> -->
-            <td>
-             <form action="" method="post">
-                    <input type="hidden" name="edit_id" value="">
-                    <button  type="submit" name="edit_btn" class="btn btn-success"> EDIT</button>
-                </form>
-            </td>
-            <td>
-                <form action="" method="post">
-                  <input type="hidden" name="delete_id" value="">
-                  <button type="submit" name="delete_btn" class="btn btn-danger"> DELETE</button>
-                </form>   
-            </td>
-          </tr>
-        
-        </tbody>
-      </table>
-
+              </thead>
+              <tbody>
+                    <?php while ($row = $result->fetch_assoc()): ?>
+                        <tr>
+                            <td><?= $row['id']; ?></td>
+                            <td><?= $row['nama']; ?></td>
+                            <td>
+                                <form action="code_obat.php" method="post">
+                                    <input type="hidden" name="edit_id" value="<?= $row['id']; ?>">
+                                    <button type="button"  class="btn btn-success edit-btn" data-toggle="modal" data-target="#addadminprofile" data-id="<?= $row['id']; ?>" data-nama="<?= $row['nama'];?>">EDIT
+                                    </button>
+                                </form>
+                                <form action="code_obat.php" method="post">
+                                    <input type="hidden" name="dltobt_id" value="<?= $row['id']; ?>">
+                                    <button type="submit" name="dltobt_btn" class="btn btn-danger">DELETE</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+              </tbody>
+              </table>
     </div>
   </div>
 </div>
