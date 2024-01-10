@@ -81,8 +81,8 @@ if (isset($_POST['tambah_obat'])) {
     $nama = $_POST['Nama_Obat'];
 
     // Cetak variabel untuk debugging
-    // echo "id obat: $id, Nama: $nama";
-    // var_dump($id_obat ,$nama); // Tambahkan ini
+    echo "Id_Obat: $id_obat, Nama_Obat: $nama";
+    var_dump($id_obat ,$nama); // Tambahkan ini
     
 
     // Query untuk menambah data ke database
