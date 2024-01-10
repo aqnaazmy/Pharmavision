@@ -62,7 +62,7 @@ $result = $koneksi->query($query);
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Transaction 
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
-              Add Transaction Profile 
+              Add Transaction 
             </button>
     </h6>
   </div>
@@ -75,34 +75,32 @@ $result = $koneksi->query($query);
         <thead>
           <tr>
             <th> Id Transaksi </th>
-            <th> Id Obat </th>
-            <th> Id Custommer </th>
-            <th> Nama Obat </th>
+            <th> Tanggal </th>
+            <th> Nama Pembeli </th>
             <th> EDIT </th>
             <th> DELETE </th>
           </tr>
         </thead>
         <tbody>
-     
-          <tr>
-            <td> 75529 </td>
-            <td> 00987 </td>
-            <td> 12345 </td>
-            <td> Vitamin C </td>
-            <td>
-                <form action="" method="post">
-                    <input type="hidden" name="edit_id" value="">
-                    <button  type="submit" name="edit_btn" class="btn btn-success"> EDIT</button>
-                </form>
+        <?php while ($row = $result->fetch_assoc()): ?>
+                <tr>
+                    <td><?= $row['id']; ?></td>
+                    <td><?= $row['tanggal']; ?></td>
+                    <td><?= $row['nama_pembeli']; ?></td>
+                    <td>
+                      <form action="code.php" method="post">
+                          <input type="hidden" name="edit_id" value="">
+                          <button  type="submit" name="edit_btn" class="btn btn-success"> EDIT</button>
+                      </form>
+                    </td>
+                    <td>
+                      <form action="code.php" method="post">
+                        <input type="hidden" name="delete_id" value="<?= $row['id']; ?>">
+                        <button type="submit" name="delete_obat" class="btn btn-danger"> DELETE</button>
+                      </form>
             </td>
-            <td>
-                <form action="" method="post">
-                  <input type="hidden" name="delete_id" value="">
-                  <button type="submit" name="delete_btn" class="btn btn-danger"> DELETE</button>
-                </form>
-            </td>
-          </tr>
-        
+                </tr>
+            <?php endwhile; ?>
         </tbody>
       </table>
 

@@ -13,7 +13,7 @@ $result = $koneksi->query($query);
 ?>
 
 
-<div class="modal fade" id="addadminprofile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="adddataobat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -28,11 +28,11 @@ $result = $koneksi->query($query);
 
             <div class="form-group">
                 <label> id Obat </label>
-                <input type="number" name="Id Obat" class="form-control" placeholder="Masukan Id">
+                <input type="number" name="Id_Obat" class="form-control" placeholder="Masukan Id">
             </div>
             <div class="form-group">
                 <label>Nama Obat</label>
-                <input type="text" name="Nama Obat" class="form-control" placeholder="Masukan Nama">
+                <input type="text" name="Nama_Obat" class="form-control" placeholder="Masukan Nama">
             </div>
         </div>
         <div class="modal-footer">
@@ -52,7 +52,7 @@ $result = $koneksi->query($query);
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Potion 
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#adddataobat">
               Add Potion Profile 
             </button>
     </h6>
@@ -67,7 +67,7 @@ $result = $koneksi->query($query);
           <tr>
             <th> Id Obat </th>
             <th> Nama Obat </th>
-            <th> EDIT </th>
+            <th> EDIT </th> 
             <th> DELETE </th>
           </tr>
         </thead>

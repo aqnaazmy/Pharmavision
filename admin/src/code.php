@@ -77,16 +77,16 @@ if (isset($_POST['delete_btn'])) {
 // Create (Tambah Data obat)
 if (isset($_POST['tambah_obat'])) {
     // echo "Form submit detected";
-    $id = $_POST['id obbat'];
-    $nama = $_POST['Nama'];
+    $id_obat = $_POST['Id_Obat'];
+    $nama = $_POST['Nama_Obat'];
 
     // Cetak variabel untuk debugging
-    echo "id obat: $id, Nama: $nama";
-    var_dump($id ,$nama); // Tambahkan ini
+    // echo "id obat: $id, Nama: $nama";
+    // var_dump($id_obat ,$nama); // Tambahkan ini
     
 
     // Query untuk menambah data ke database
-    $query = "INSERT INTO obat ('id', `nama_obat`) VALUES ('$id','$nama')";
+    $query = "INSERT INTO obat ('id', `nama_obat`) VALUES ('$id_obat','$nama')";
     echo $query; // Tambahkan ini
 
     // Eksekusi query

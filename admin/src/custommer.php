@@ -142,7 +142,8 @@ $result = $koneksi->query($query);
                         <th>Alamat</th>
                         <th>No Handphone</th>
                         <th>Gender</th>
-                        <th>Action</th>
+                        <th>EDIT</th>
+                        <th>DELETE</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -159,6 +160,8 @@ $result = $koneksi->query($query);
                                     <button type="button"  class="btn btn-success edit-btn" data-toggle="modal" data-target="#editAdminProfile" data-id="<?= $row['id']; ?>" data-nama="<?= $row['nama']; ?>" data-alamat="<?= $row['alamat']; ?>" data-nohandphone="<?= $row['no_handphone']; ?>" data-gender="<?= $row['gender']; ?>">EDIT
                                     </button>
                                 </form>
+                            </td>
+                            <td>
                                 <form action="code.php" method="post">
                                     <input type="hidden" name="delete_id" value="<?= $row['id']; ?>">
                                     <button type="submit" name="delete_btn" class="btn btn-danger">DELETE</button>
