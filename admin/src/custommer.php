@@ -84,7 +84,10 @@ $result = $koneksi->query($query);
             <form id="editForm" action="code.php" method="POST">
 
                 <div class="modal-body">
-
+                    <div class="form-group">
+                        <label> id </label>
+                        <input type="number" id="editId" name="id_custommer" class="form-control" placeholder="Masukan id">
+                    </div>
                     <div class="form-group">
                         <label> Nama </label>
                         <input type="text" id="editNama" name="edit_nama" class="form-control" placeholder="Masukan Nama">
