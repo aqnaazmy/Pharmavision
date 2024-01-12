@@ -34,5 +34,4 @@ if (isset($_POST['dlt_transaksi'])) {
     $koneksi->query($query);
     header('Location: transaksi.php'); 
 }
-
 ?>
