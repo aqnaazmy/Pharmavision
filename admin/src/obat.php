@@ -22,7 +22,7 @@ $result = $koneksi->query($query);
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="code.php" method="POST">
+      <form action="code_obat.php" method="POST">
 
         <div class="modal-body">
 
@@ -37,7 +37,7 @@ $result = $koneksi->query($query);
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="tambah_obat" class="btn btn-primary">Save</button>
+            <button type="submit" name="obt_btn" class="btn btn-primary">Save</button>
         </div>
       </form>
 

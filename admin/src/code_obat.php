@@ -5,16 +5,16 @@ include('koneksi.php');
 //  Create (Tambah Data obat)
 if (isset($_POST['obt_btn'])) {
     // echo "Form submit detected";
-    $id = $_POST['id'];
-    $nama = $_POST['Nama Obat'];
+    // $id = $_POST['Id_Obat'];
+    $nama = $_POST['Nama_Obat'];
 
     // Cetak variabel untuk debugging
-    echo "Id: $id, Nama Obat: $nama";
-    var_dump($id ,$nama); // Tambahkan ini
+    echo "Nama_Obat: $nama";
+    var_dump($nama); // Tambahkan ini
     
 
     // Query untuk menambah data ke database
-    $query = "INSERT INTO obat (`id`,`nama_obat`) VALUES ('$id','$nama')";
+    $query = "INSERT INTO obat (`nama_obat`) VALUES ('$nama')";
     echo $query; // Tambahkan ini
 
     // Eksekusi query
@@ -33,5 +33,7 @@ if (isset($_POST['dltobt_btn'])) {
     $query = "DELETE FROM obat WHERE id='$id'";
     $koneksi->query($query);
     header('Location: obat.php'); 
+
+}
 
 ?>
