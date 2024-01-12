@@ -1,6 +1,6 @@
 <head>
   <title>Pharmavision</title>
-  <link rel="icon" type="image/x-icon" href="/Pharmavision/img/logo4.png">
+  <link rel="icon" type="image/x-icon" href="/pharmavision/admin/img/logo4.png">
 </head>
 
 <?php
