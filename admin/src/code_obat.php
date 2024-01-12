@@ -28,7 +28,7 @@ if (isset($_POST['obt_btn'])) {
 }
 
 // Delete (Hapus Data obat)
-if (isset($_POST['dltobt_btn'])) {
+if (isset($_POST['dltobt_btn'])) 
     $id = $_POST['dltobt_id'];
     $query = "DELETE FROM obat WHERE id='$id'";
     $koneksi->query($query);
