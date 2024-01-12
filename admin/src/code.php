@@ -53,6 +53,7 @@ if (isset($_POST['update_btn'])) {
     header('Location: custommer.php'); // Ganti dengan halaman yang sesuai
 }
 
+
 // Delete (Hapus Data Custommer)
 if (isset($_POST['delete_btn'])) {
     $id = $_POST['delete_id'];
@@ -62,5 +63,3 @@ if (isset($_POST['delete_btn'])) {
 }
 
 ?>
-
-UPDATE `custommer` SET `id`='[value-1]',`nama`='[value-2]',`alamat`='[value-3]',`no_handphone`='[value-4]',`gender`='[value-5]' WHERE 1
