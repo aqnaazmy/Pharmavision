@@ -30,6 +30,26 @@ if (isset($_POST['admin_btn'])) {
     header('Location: admin.php'); // Ganti dengan halaman yang sesuai
 }
 
+// Update (Edit Data Custommer)
+if (isset($_POST['update_btn'])) {
+    $id = $_POST['id'];
+    $username = $_POST['Usernmae'];
+    $email = $_POST['Email'];
+    $password = $_POST['Password'];
+
+    $query = "UPDATE `admin` SET `Username`='$username', `Email`='$email', `Password`='$password' WHERE `id`='$id'";
+    echo "ID: $id, Username: $username, Email: $email, Password: $password";
+
+    if ($koneksi->query($query) === TRUE) {
+        echo "Data berhasil diupdate";
+    } else {
+        echo "Error updating record: " . $koneksi->error;
+        var_dump($koneksi->error);
+    }
+
+    header('Location: admin.php'); // Ganti dengan halaman yang sesuai
+}
+
 // Delete (Hapus Data obat)
 if (isset($_POST['dlt_admin'])) {
     $id = $_POST['delete_id'];
