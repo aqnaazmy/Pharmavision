@@ -30,7 +30,7 @@ if (isset($_POST['obt_btn'])) {
 // Update (Edit Data Custommer)
 if (isset($_POST['update_btn'])) {
     $id = $_POST['id_obat'];
-    $nama = $_POST['Nama_Obat'];
+    $nama = $_POST['edit_obat'];
 
     $query = "UPDATE `obat` SET `Nama_Obat`='$nama' WHERE `id`='$id'";
     echo "ID: $id, Nama_Obat: $nama";

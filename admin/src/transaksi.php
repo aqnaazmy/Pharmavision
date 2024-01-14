@@ -53,6 +53,41 @@ $result = $koneksi->query($query);
   </div>
 </div>
 
+<div class="modal fade" id="editTransaksi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Admin Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="editForm" action="code_transaksi.php" method="POST">
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label> id Transaksi </label>
+                        <input type="number" id="editId" name="id_transaksi" class="form-control" placeholder="Masukan id">
+                    </div>
+                    <div class="form-group">
+                        <label> Tanggal </label>
+                        <input type="date" id="editTanggal" name="edit_tanggal" class="form-control" placeholder="Masukan Tanggal">
+                    </div>
+                    <div class="form-group">
+                        <label> Nama Pembeli </label>
+                        <input type="text" id="editPembeli" name="edit_pembeli" class="form-control" placeholder="Masukan Nama Pembeli">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" name="update_btn" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
 
 <div class="container-fluid">
 
@@ -88,8 +123,8 @@ $result = $koneksi->query($query);
                     <td><?= $row['nama_pembeli']; ?></td>
                     <td>
                       <form action="code_transaksi.php" method="post">
-                          <input type="hidden" name="edit_id" value="">
-                          <button  type="submit" name="edit_btn" class="btn btn-success"> EDIT</button>
+                          <input type="hidden" name="editId" value="<?= $row['id']; ?>">
+                          <button  type="button" class="btn btn-success edit-btn" data-toggle="modal" data-target="#editTransaksi" data-id="<?= $row['id']; ?>" data-tanggal="<?= $row['tanggal']; ?>" data-pembeli="<?= $row['nama_pembeli']; ?>"> EDIT</button>
                       </form>
                     </td>
                     <td>
@@ -108,6 +143,20 @@ $result = $koneksi->query($query);
 </div>
 
 </div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.edit-btn').click(function() {
+            var id = $(this).data('id');
+            var tanggal = $(this).data('tanggal');
+            var pembeli = $(this).data('nama_pembeli');
+
+            $('#editId').val(id);
+            $('#editTanggal').val(tanggal);
+            $('#editPembeli').val(pembeli);
+        });
+    });
+</script>
 <!-- /.container-fluid -->
 
 <?php

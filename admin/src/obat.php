@@ -45,6 +45,37 @@ $result = $koneksi->query($query);
   </div>
 </div>
 
+<div class="modal fade" id="editPotion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Admin Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="editForm" action="code_obat.php" method="POST">
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label> id Obat </label>
+                        <input type="number" id="editId" name="id_obat" class="form-control" placeholder="Masukan id">
+                    </div>
+                    <div class="form-group">
+                        <label> Nama Obat </label>
+                        <input type="text" id="editObat" name="edit_obat" class="form-control" placeholder="Masukan Nama Obat">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" name="update_btn" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
 
 <div class="container-fluid">
 
@@ -78,8 +109,8 @@ $result = $koneksi->query($query);
                     <td><?= $row['nama_obat']; ?></td>
                     <td>
                       <form action="code_obat.php" method="post">
-                          <input type="hidden" name="edit_id" value="">
-                          <button  type="submit" name="edit_btn" class="btn btn-success"> EDIT</button>
+                          <input type="hidden" name="editId" value="<?= $row['id']; ?>">
+                          <button  type="button" class="btn btn-success edit-btn" data-toggle="modal" data-target="#editPotion" data-id="<?= $row['id']; ?>" data-obat="<?= $row['nama_obat']; ?>"> EDIT</button>
                       </form>
                     </td>
                     <td>
@@ -98,6 +129,19 @@ $result = $koneksi->query($query);
 </div>
 
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.edit-btn').click(function() {
+            var id = $(this).data('id');
+            var nama = $(this).data('nama_obat');
+
+            $('#editId').val(id);
+            $('#editObat').val(nama);
+        });
+    });
+</script>
 <!-- /.container-fluid -->
 
 <?php

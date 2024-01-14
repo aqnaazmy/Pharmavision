@@ -30,8 +30,8 @@ if (isset($_POST['transaksi_btn'])) {
 // Update (Edit Data Custommer)
 if (isset($_POST['update_btn'])) {
     $id = $_POST['id_transaksi'];
-    $tanggal = $_POST['Tanggal'];
-    $nama = $_POST['Nama_Pembeli'];
+    $tanggal = $_POST['edit_tanggal'];
+    $nama = $_POST['edit_pembeli'];
 
     $query = "UPDATE `transaksi` SET `Tanggal`='$tanggal', `Nama_Pembeli`='$nama' WHERE `id`='$id'";
     echo "ID: $id, Tanggal: $tanggal, Nama_Pembeli: $nama";

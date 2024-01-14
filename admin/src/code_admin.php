@@ -32,10 +32,10 @@ if (isset($_POST['admin_btn'])) {
 
 // Update (Edit Data Custommer)
 if (isset($_POST['update_btn'])) {
-    $id = $_POST['id'];
-    $username = $_POST['Usernmae'];
-    $email = $_POST['Email'];
-    $password = $_POST['Password'];
+    $id = $_POST['id_admin'];
+    $username = $_POST['edit_Usernmae'];
+    $email = $_POST['edit_Email'];
+    $password = $_POST['edit_Password'];
 
     $query = "UPDATE `admin` SET `Username`='$username', `Email`='$email', `Password`='$password' WHERE `id`='$id'";
     echo "ID: $id, Username: $username, Email: $email, Password: $password";

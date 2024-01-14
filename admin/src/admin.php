@@ -54,6 +54,45 @@ $result = $koneksi->query($query);
   </div>
 </div>
 
+<div class="modal fade" id="editAdminProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Admin Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="editForm" action="code_admin.php" method="POST">
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label> id </label>
+                        <input type="number" id="editId" name="id_admin" class="form-control" placeholder="Masukan id">
+                    </div>
+                    <div class="form-group">
+                        <label> Username </label>
+                        <input type="text" id="editUsername" name="edit_Usernmae" class="form-control" placeholder="Masukan Username">
+                    </div>
+                    <div class="form-group">
+                        <label> Email</label>
+                        <input type="text" id="editEmail" name="edit_Email" class="form-control" placeholder="Masukan Email">
+                    </div>
+                    <div class="form-group">
+                        <label> Password </label>
+                        <input type="text" id="editPassword" name="edit_Password" class="form-control" placeholder="Masukan Password">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" name="update_btn" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
 
 <div class="container-fluid">
 
@@ -91,8 +130,8 @@ $result = $koneksi->query($query);
                     <td><?= $row['password']; ?></td>
                     <td>
                       <form action="code_admin.php" method="post">
-                          <input type="hidden" name="edit_id" value="">
-                          <button  type="submit" name="edit_btn" class="btn btn-success"> EDIT</button>
+                          <input type="hidden" name="edit_id" value="<?= $row['id']; ?>">
+                          <button  type="button" class="btn btn-success edit-btn" data-toggle="modal" data-target="#editAdminProfile" data-id="<?= $row['id']; ?>" data-username="<?= $row['username']; ?>" data-email="<?= $row['email']; ?>" data-password="<?= $row['password']; ?>"> EDIT</button>
                       </form>
                     </td>
                     <td>
@@ -111,6 +150,22 @@ $result = $koneksi->query($query);
 </div>
 
 </div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.edit-btn').click(function() {
+            var id = $(this).data('id');
+            var username = $(this).data('username');
+            var email = $(this).data('email');
+            var password = $(this).data('password');
+
+            $('#edit_id').val(id);
+            $('#editUsername').val(username);
+            $('#editEmail').val(email);
+            $('#editPassword').val(password);
+        });
+    });
+</script>
 <!-- /.container-fluid -->
 
 <?php
