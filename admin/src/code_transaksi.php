@@ -27,6 +27,25 @@ if (isset($_POST['transaksi_btn'])) {
     header('Location: transaksi.php'); // Ganti dengan halaman yang sesuai
 }
 
+// Update (Edit Data Custommer)
+if (isset($_POST['update_btn'])) {
+    $id = $_POST['id_transaksi'];
+    $tanggal = $_POST['Tanggal'];
+    $nama = $_POST['Nama_Pembeli'];
+
+    $query = "UPDATE `transaksi` SET `Tanggal`='$tanggal', `Nama_Pembeli`='$nama' WHERE `id`='$id'";
+    echo "ID: $id, Tanggal: $tanggal, Nama_Pembeli: $nama";
+
+    if ($koneksi->query($query) === TRUE) {
+        echo "Data berhasil diupdate";
+    } else {
+        echo "Error updating record: " . $koneksi->error;
+        var_dump($koneksi->error);
+    }
+
+    header('Location: transaksi.php'); // Ganti dengan halaman yang sesuai
+}
+
 // Delete (Hapus Data obat)
 if (isset($_POST['dlt_transaksi'])) {
     $id = $_POST['delete_id'];
