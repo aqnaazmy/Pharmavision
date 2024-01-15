@@ -26,10 +26,10 @@ $result = $koneksi->query($query);
       <form action="code_admin.php" method="POST">
 
         <div class="modal-body">
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label> id </label>
                 <input type="number" name="id_admin" class="form-control" placeholder="Masukan id">
-            </div>
+            </div> -->
             <div class="form-group">
                 <label> Username </label>
                 <input type="text" name="Username" class="form-control" placeholder="Enter Username">
@@ -130,7 +130,7 @@ $result = $koneksi->query($query);
                     <td><?= $row['password']; ?></td>
                     <td>
                       <form action="code_admin.php" method="post">
-                          <input type="hidden" name="edit_id" value="<?= $row['id']; ?>">
+                          <input type="hidden" name="editId" value="<?= $row['id']; ?>">
                           <button  type="button" class="btn btn-success edit-btn" data-toggle="modal" data-target="#editAdminProfile" data-id="<?= $row['id']; ?>" data-username="<?= $row['username']; ?>" data-email="<?= $row['email']; ?>" data-password="<?= $row['password']; ?>"> EDIT</button>
                       </form>
                     </td>
@@ -159,7 +159,7 @@ $result = $koneksi->query($query);
             var email = $(this).data('email');
             var password = $(this).data('password');
 
-            $('#edit_id').val(id);
+            $('#editId').val(id);
             $('#editUsername').val(username);
             $('#editEmail').val(email);
             $('#editPassword').val(password);

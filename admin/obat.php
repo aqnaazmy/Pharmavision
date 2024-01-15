@@ -26,10 +26,10 @@ $result = $koneksi->query($query);
 
         <div class="modal-body">
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label> id Obat </label>
                 <input type="number" name="Id_Obat" class="form-control" placeholder="Masukan Id">
-            </div>
+            </div> -->
             <div class="form-group">
                 <label>Nama Obat</label>
                 <input type="text" name="Nama_Obat" class="form-control" placeholder="Masukan Nama">
@@ -59,7 +59,7 @@ $result = $koneksi->query($query);
                 <div class="modal-body">
                     <div class="form-group">
                         <label> id Obat </label>
-                        <input type="number" id="editId" name="id_obat" class="form-control" placeholder="Masukan id">
+                        <input  type="number" id="editId" name="id_obat" class="form-control" placeholder="Masukan id">
                     </div>
                     <div class="form-group">
                         <label> Nama Obat </label>
@@ -135,7 +135,7 @@ $result = $koneksi->query($query);
     $(document).ready(function() {
         $('.edit-btn').click(function() {
             var id = $(this).data('id');
-            var nama = $(this).data('nama_obat');
+            var nama = $(this).data('obat');
 
             $('#editId').val(id);
             $('#editObat').val(nama);

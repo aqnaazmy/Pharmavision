@@ -5,9 +5,6 @@
 </head>
 
 <?php
-// error_reporting(E_ALL);
-// ini_set('display_errors', 1);
-
 
 include('includes/header.php'); 
 include('includes/navbar.php'); 
@@ -16,11 +13,6 @@ include('koneksi.php');
 $query = "SELECT * FROM custommer";
 $result = $koneksi->query($query);
 
-// if ($testResult) {
-//     echo "Koneksi dan query berhasil!";
-// } else {
-//     echo "Gagal menjalankan query: " . $koneksi->error;
-// }
 ?>
 
 
@@ -37,10 +29,10 @@ $result = $koneksi->query($query);
 
         <div class="modal-body">
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label> id </label>
                 <input type="number" name="id_custommer" class="form-control" placeholder="Masukan id">
-            </div>
+            </div> -->
             <div class="form-group">
                 <label> Nama </label>
                 <input type="text" name="Nama" class="form-control" placeholder="Masukan Nama">
@@ -159,7 +151,7 @@ $result = $koneksi->query($query);
                             <td><?= $row['gender']; ?></td>
                             <td>
                                 <form action="code.php" method="post">
-                                    <input type="hidden" name="edit_id" value="<?= $row['id']; ?>">
+                                    <input type="hidden" name="editId" value="<?= $row['id']; ?>">
                                     <button type="button"  class="btn btn-success edit-btn" data-toggle="modal" data-target="#editAdminProfile" data-id="<?= $row['id']; ?>" data-nama="<?= $row['nama']; ?>" data-alamat="<?= $row['alamat']; ?>" data-nohandphone="<?= $row['no_handphone']; ?>" data-gender="<?= $row['gender']; ?>">EDIT
                                     </button>
                                 </form>
@@ -189,7 +181,7 @@ $result = $koneksi->query($query);
             var nohandphone = $(this).data('nohandphone');
             var gender = $(this).data('gender');
 
-            $('#edit_id').val(id);
+            $('#editId').val(id);
             $('#editNama').val(nama);
             $('#editAlamat').val(alamat);
             $('#editNoHandphone').val(nohandphone);

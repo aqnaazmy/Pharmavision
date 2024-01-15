@@ -29,10 +29,10 @@ $result = $koneksi->query($query);
 
         <div class="modal-body">
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label> Id Transaksi </label>
                 <input type="number" name="Id_transaksi" class="form-control" placeholder="Masukan Id">
-            </div>
+            </div> -->
             <div class="form-group">
                 <label>Tanggal</label>
                 <input type="date" name="Tanggal" class="form-control" placeholder="Masukan tanggal">
@@ -149,7 +149,7 @@ $result = $koneksi->query($query);
         $('.edit-btn').click(function() {
             var id = $(this).data('id');
             var tanggal = $(this).data('tanggal');
-            var pembeli = $(this).data('nama_pembeli');
+            var pembeli = $(this).data('pembeli');
 
             $('#editId').val(id);
             $('#editTanggal').val(tanggal);
